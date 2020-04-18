@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Employees.Mvc.View_Models.EmployeeSummarizedVM>
+
+    <div class="d-flex justify-content-center">
+        <div>
+            <h1 class="display-3">Employees List</h1>
+            <p class="lead">Here you can find our employees list. You can add, update, or delete an entry.</p>
+            <br />
+            <table class="table employees-table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                        <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                        <th>@Html.DisplayNameFor(model => model.Specialty)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => employee.FirstName)</td>
+                            <td>@Html.DisplayFor(modelItem => employee.LastName)</td>
+                            <td>@Html.DisplayFor(modelItem => employee.Specialty)</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="@Url.Action(nameof(Employees.Mvc.Controllers.MVC.EmployeesController.Details), new { Id = employee.Id })" class="btn btn-light">See More</a>
+                                    <a href="@Url.Action(nameof(Employees.Mvc.Controllers.MVC.EmployeesController.Edit), new { Id = employee.Id })" class="btn btn-light">Edit Info</a>
+                                    <a href="@Url.Action(nameof(Employees.Mvc.Controllers.MVC.EmployeesController.Delete), new { Id = employee.Id })" class="btn btn-light">Remove</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="@Url.Action(action: nameof(Employees.Mvc.Controllers.MVC.EmployeesController.Create))" class="btn btn-success font-weight-bold">
+                <svg class="bi bi-person-plus-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm7.5-3a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-2a.5.5 0 010-1H13V5.5a.5.5 0 01.5-.5z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M13 7.5a.5.5 0 01.5-.5h2a.5.5 0 010 1H14v1.5a.5.5 0 01-1 0v-2z" clip-rule="evenodd" />
+                </svg>
+                New Employee
+            </a>
+        </div>
+    </div>
