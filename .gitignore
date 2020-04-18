@@ -340,4 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # Ignore appsettings json file
-**/appsettings.json
+*/appsettings.json
