@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using AutoMapper;
 using Employees.WebApi.Extensions;
 using Employees.WebApi.Models;
@@ -13,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 
 namespace Employees.WebApi
 {
@@ -27,9 +29,22 @@ namespace Employees.WebApi
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {           
             //Add Db Context...
-            services.AddDbContext<EmployeesDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<EmployeesDbContext>(options =>
+            {
+                //Try parse file into json and get value from it.
+                try
+                {
+                    var connectionStringsFile = File.ReadAllText("../connectionStrings.json");
+                    var connectionStrings = JObject.Parse(connectionStringsFile);
+                    options.UseSqlServer(connectionStrings.Value<string>("employeesEvoDb"));
+                }
+                catch (IOException exc)
+                {
+                    throw exc;
+                }
+            });
 
             //Add AutoMapper...
             services.AddAutoMapper(typeof(DefaultMappingProfile));

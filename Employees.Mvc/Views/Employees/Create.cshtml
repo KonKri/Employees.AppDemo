@@ -8,23 +8,23 @@
         <form asp-action="@nameof(Employees.Mvc.Controllers.MVC.EmployeesController.Create)" method="post" class="new-or-update-form">
             <div class="form-row form-group">
                 <div class="col">
-                    <input class="form-control" type="text" name="firstName" placeholder="Employee's First Name" />
+                    <input class="form-control" type="text" name="firstName" placeholder="Employee's First Name" required/>
                 </div>
                 <div class="col">
-                    <input class="form-control" type="text" name="lastName" placeholder="Employee's Last Name" />
-                </div>
-            </div>
-            <div class="form-row form-group">
-                <div class="col">
-                    <input class="form-control" type="text" name="address" placeholder="Employee's Address" />
-                </div>
-                <div class="col">
-                    <input class="form-control" type="text" name="phoneNumber" placeholder="Employee's Phone Number" />
+                    <input class="form-control" type="text" name="lastName" placeholder="Employee's Last Name" required/>
                 </div>
             </div>
             <div class="form-row form-group">
                 <div class="col">
-                    <input class="form-control" type="text" name="specialty" placeholder="Employee's Specialty" />
+                    <input class="form-control" type="text" name="address" placeholder="Employee's Address" required/>
+                </div>
+                <div class="col">
+                    <input class="form-control" type="number" name="phoneNumber" placeholder="Employee's Phone Number" required/>
+                </div>
+            </div>
+            <div class="form-row form-group">
+                <div class="col">
+                    <input class="form-control" type="text" name="specialty" placeholder="Employee's Specialty" required/>
                 </div>
             </div>
             <div class="form-row form-group">

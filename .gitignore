@@ -341,3 +341,6 @@ healthchecksdb
 
 # Ignore appsettings json file
 */appsettings.json
+
+# Ignore connectionStrings.json file
+**/connectionStrings.json

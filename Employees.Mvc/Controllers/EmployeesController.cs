@@ -32,6 +32,7 @@ namespace Employees.Mvc.Controllers.MVC
         {
             // get all employees summarized.
             var employees = _repo.GetAllEmployees();
+
             return View(employees);
         }
 
@@ -63,6 +64,9 @@ namespace Employees.Mvc.Controllers.MVC
                 // create employee.
                 _repo.CreateEmployee(newEmployee);
 
+                // set temp data -> new employee created.
+                TempData["NewEmployeeCreatedFullName"] = $"{newEmployee.FirstName} {newEmployee.LastName}";
+
                 // redirect to main view
                 return RedirectToAction(nameof(ListSummarized));
             }
@@ -79,6 +83,10 @@ namespace Employees.Mvc.Controllers.MVC
             {
                 // delete employee by id.
                 _repo.DeleteEmployee(id);
+
+                // set temp data -> employee removed.
+                TempData["DeletedEmployeeId"] = id.ToString();
+
                 return RedirectToAction(nameof(ListSummarized));
             }
             catch
@@ -105,6 +113,10 @@ namespace Employees.Mvc.Controllers.MVC
                 var updatedEmployee = _mapper.Map<Employee>(updatedEmployeeVM);
                 updatedEmployee.Id = id;
                 _repo.UpdateEmployee(updatedEmployee);
+
+                // set temp data -> employee removed.
+                TempData["UpdatedEmployeeId"] = id.ToString();
+
                 return RedirectToAction(nameof(ListSummarized));
             }
             catch

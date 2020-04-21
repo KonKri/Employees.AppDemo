@@ -19,6 +19,27 @@
 <body>
     <div class="white-space"></div>
     <div class="container">
+        @if (!String.IsNullOrEmpty(TempData["NewEmployeeCreatedFullName"] as string))
+        {
+            <div class="alert alert-success" role="alert">
+                A new employee has been added with name @TempData["NewEmployeeCreatedFullName"].
+            </div>
+        }
+
+        @if (!String.IsNullOrEmpty(TempData["DeletedEmployeeId"] as string))
+        {
+            <div class="alert alert-warning" role="alert">
+                Employee under id '@TempData["DeletedEmployeeId"]' has been removed.
+            </div>
+        }
+            
+        @if (!String.IsNullOrEmpty(TempData["UpdatedEmployeeId"] as string))
+        {
+            <div class="alert alert-info" role="alert">
+                Employee under id '@TempData["UpdatedEmployeeId"]' info has been updated.
+            </div>
+        }
+        
         @RenderBody()
     </div>
 </body>
