@@ -6,5 +6,5 @@ Web Api is a restful api executes queries against an azure database and returns 
 MVC project implements same functionality as the web api. In addition there is a friendly UI where the user can interact with the the website.
 
 Currently both projects are live in a free tier in azure. Endpoints can be found here:
- - MVC Project: konkri-employees-evo-mvc.azurewebsites.net/
- - Web Api:  konkri-employees-evo.azurewebsites.net/swagger
+ - MVC Project: https://konkri-employees-evo-mvc.azurewebsites.net 
+ - Web Api:  https://konkri-employees-evo.azurewebsites.net/swagger
