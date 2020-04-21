@@ -7,11 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.WebApi", "Employe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Mvc", "Employees.Mvc\Employees.Mvc.csproj", "{7F885212-7740-4A5C-AEC2-5D08D2D53778}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{23F7BDFC-422B-470F-8625-E16ABAEC6BD6}"
-	ProjectSection(SolutionItems) = preProject
-		connectionStrings.json = connectionStrings.json
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

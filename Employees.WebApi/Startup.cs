@@ -36,7 +36,7 @@ namespace Employees.WebApi
                 //Try parse file into json and get value from it.
                 try
                 {
-                    var connectionStringsFile = File.ReadAllText("../connectionStrings.json");
+                    var connectionStringsFile = File.ReadAllText("./connectionStrings.json");
                     var connectionStrings = JObject.Parse(connectionStringsFile);
                     options.UseSqlServer(connectionStrings.Value<string>("employeesEvoDb"));
                 }
